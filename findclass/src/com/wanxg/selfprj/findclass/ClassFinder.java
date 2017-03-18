@@ -63,13 +63,12 @@ public class ClassFinder {
 			}
 		}
 
-		if (args.length > 2) {
+		else if (args.length > 2) {
 			path = args[0];
 			if (!(args[1].trim().equalsIgnoreCase("-p") || args[1].trim().equalsIgnoreCase("-c"))) {
 				System.out.println(usage);
 				return;
 			} else {
-				path = args[0];
 				option = args[1];
 				target = args[2];
 			}
@@ -89,7 +88,7 @@ public class ClassFinder {
 			searchInsideAJar(target, file, option);
 		}
 
-		if (file.isDirectory()) {
+		else if (file.isDirectory()) {
 			logger.info("Provided path refers to a directory: " + file.getPath());
 			searchInsideADirectory(target, file, option);
 		}
@@ -104,7 +103,6 @@ public class ClassFinder {
 			System.out.println("\n");
 			System.out.println(report.size() + " Result(s) found.");
 		}
-
 	}
 
 	private static void searchInsideADirectory(String target, File file, String option) {
