@@ -57,7 +57,7 @@ public class ClassFinder {
 				System.out.println(usage);
 				return;
 			} else {
-				path = ".";
+				path = System.getProperty("user.dir");
 				option = args[0];
 				target = args[1];
 			}
@@ -96,11 +96,12 @@ public class ClassFinder {
 		logger.info(String.valueOf(report.size()) + " Result(s) found.");
 
 		if (!report.isEmpty()) {
+			System.out.print("\n");
 			if (option.equalsIgnoreCase("-c"))
 				report.forEach((key, value) -> System.out.println(key + " -> " + value));
 			else if (option.equalsIgnoreCase("-p"))
 				report.forEach((key, value) -> System.out.println(value + ".* -> " + key));
-			System.out.println("\n");
+			System.out.print("\n");
 			System.out.println(report.size() + " Result(s) found.");
 		}
 	}
